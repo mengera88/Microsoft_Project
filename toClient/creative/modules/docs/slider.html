@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+        <title>UT Slider | Demo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href='../css/ut_slider.css'>
+    </head>
+    <body>
+      <!-- slider one -->
+      <div class="sliderwrapper">
+
+        <div id="slider1" class="slider ut-slider">
+          <div class="ut-slide ut-slide-default">
+            <h3>This is <strong>UT Slider</strong></h3>
+          </div>
+          <div class="ut-slide">
+            <h3>You can put nearly <i>any kind of content</i> inside as many <code>divs</code> as you'd like.</h3>
+          </div>
+          <div class="ut-slide">
+            <h3><strong>We'll generate the bullets for you.</strong><br/>And start the sliding automatically.</h3>
+          </div>
+          <div class="ut-slide">
+            <h3><code>$('#slider').<strong>utslider</strong>(options);</code><br />
+              The options argument is optional.
+              <pre style="text-align: left; border: 1px solid white; background: #e3e3e3; padding: 15px;">
+default_options = {
+  autostart: true,        <span class="comment">// start sliding automatically?</span>
+  interval: 5000,         <span class="comment">// how long between slides</span>
+  delay: 5000,            <span class="comment">// how long to wait before resuming</span>
+  speed: 600,             <span class="comment">// how quickly  the slides slide</span>
+  effect: 'ease',         <span class="comment">// sliding animation effect</span>
+  makebullets: true,      <span class="comment">// generate clickable bullets</span>
+  makepagebuttons: true,  <span class="comment">// generate left and right buttons</span>
+  fade: true,             <span class="comment">// fade slides as they slide in and out</span>
+  autoheight: true,       <span class="comment">// set slider height based on contents</span>
+  autovalign: true,       <span class="comment">// vertically center each slide</span>
+  rtl: false,             <span class="comment">// slide from right to left</span>
+  pauseable: true         <span class="comment">// generate pause/play toggle button</span><br/>}
+              </pre></h3>
+          </div>
+        </div>
+
+        <!--<a class="prev-slide">
+          <span class="arrow" class="left-arrow">&lang;</span>
+        </a>
+        <a class="next-slide">
+          <span class="arrow" class="right-arrow">&rang;</span>
+        </a>-->
+      </div>
+
+        <script>
+            document.write('<script src=../../js/' +
+            ('__proto__' in {} ? 'zepto' : 'jquery') +
+            '.min.js><\/script>')
+        </script>
+        <script type="text/javascript" src="../js/ut_slider.js"></script>
+        <script type="text/javascript">
+          $('.slider').utslider();
+        </script>
+    </body>
+</html>

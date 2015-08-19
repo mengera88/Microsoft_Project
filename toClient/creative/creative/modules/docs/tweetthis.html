@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Tweet This module demo</title>
+  <script id="ut_creativeLib">
+      // This detects whether the browser requires the Zepto or jQuery library
+      document.write('<script src=../../js/' +
+      ('__proto__' in {} ? 'zepto' : 'jquery') +
+      // needs zepto with data module
+      '.min.js><\/script>');
+  </script>
+  <!-- <script src="../dist/ut.tweetthis.min.js"></script> -->
+  <script src="../js/ut.tweetthis.js"></script>
+  <script src="../../js/creative.min.js"></script>
+  <script src="run_prettify.js"></script>
+  <style>
+    body {
+      font-size: 14px;
+      line-height: 22px;
+      background: #fff;
+      color: #000;
+      font-weight: 300;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    p {
+      margin: 20px 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      padding-top: 1.5em;
+      line-height: 1.1;
+      font-weight: 500;
+    }
+    h1:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      font-size: 2.2em;
+      font-weight: 200;
+    }
+    h2 {
+      font-size: 20px;
+      padding-bottom: .5em;
+    }
+    h4 { padding-top: .5em }
+    article { padding: 20px; }
+    pre {
+     white-space: pre-wrap;       /* css-3 */
+     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap;      /* Opera 4-6 */
+     white-space: -o-pre-wrap;    /* Opera 7 */
+     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <h1>Tweet This Module</h1>
+    <h2>Basic usage</h2>
+    <p>First, use the zepto.min.js file included with this plugin. Then just add the script <code class="prettyprint">&lt;script src=&quot;modules/js/ut.tweetthis.js&quot;&gt;&lt;/script&gt;</code> and pass a DOM element (preferably a <code>div</code> or <code>p</code>) to the <code>tweetthis()</code> function! This adds the <code class="prettyprint">ut-tweetthis-wrapper</code> class to the wrapper, appends a <code class="prettyprint">&lt;textarea&gt;</code> element, a <code class="prettyprint">&lt;div class=&quot;charcount&quot;&gt;</code>, and a <code class="prettyprint">&lt;button class=&quot;ut_tweetthis-button&quot;&gt;</code>. The text content of the element you pass will be prefilled in the resulting textarea. When the value length of the text area exceeds the maximum character count, the <code class="prettyprint">.limit-exceeded</code> class is added to the <code class="prettyprint">.charcount</code> element.</p>
+    <pre><code class="prettyprint">
+      &lt;script src=&quot;modules/js/ut.tweetthis.js&quot;&gt;&lt;/script&gt;
+
+      &lt;div id=&quot;tweet&quot;&gt;#preexistingcontents&lt;/div&gt;
+      &lt;script&gt;
+        $(&#39;#tweet&#39;).tweetthis();
+      &lt;/script&gt;
+    </pre></code>
+    <div id="tweet">#preexistingcontents</div>
+
+    <h2>Configuration</h2>
+    <p>You've got some configuration options that are set as properties of a config object passed as a parameter of the <code class="prettyprint">tweetthis(config)</code> function. These are the defaults:
+
+    <pre><code class="prettyprint">
+      &lt;div id=&quot;tweet2&quot;&gt;Second Example, but with the config object passed with all defaults.&lt;/div&gt;
+      &lt;script&gt;
+        var tt_default_config = {
+          buttonText: &#39;Tweet This&#39;,
+          // initContents: &#39;if this config property is set, it will override #preexistingcontents&#39;,
+          showChars: true, // show the character counter
+          maxChars: 140,
+          invert: false, // show # of chars used rather than chars remaiining
+          style: false // add base styles
+        };
+
+        $(&#39;#tweet&#39;).tweetthis(tt_default_config);
+      &lt;/script&gt;
+    </pre></code>
+
+    <div id="tweet2">Second Example, but with the config object passed with all defaults.</div>
+
+    <h2>Changing Textarea Contents</h2>
+    <p>If for some reason you need to change the contents of the text area on the fly, that can be done!</p>
+    <pre><code class="prettyprint">
+      var tw2 = $(&#39;#tweet2&#39;).tweetthis();
+      tw2.data(&#39;tweetthis&#39;).setContents(Date.now() + &#39;: Suddenly, everything has changed&#39;);
+    </code></pre>
+
+    <button id="changer">Change Tweet Text</button>
+
+    <h2>Events</h2>
+    <p>By default, a <code class="prettyprint">REDIRECT</code> event is tracked when the button is clicked.</p>
+  </article>
+  <script>
+
+  var tw = $('#tweet'),
+  twt = tw.tweetthis({
+    initContents: '#BodyByVictoria is all new! Check out http://i.victoria.com/EgS & meet me @VictoriasSecret so we can #TryAndTell'
+  }),
+  tw2 = $('#tweet2'),
+  twt2 = tw2.tweetthis(tt_default_config),
+  tt_default_config = {
+    buttonText: 'Tweet This',
+    initContents: 'if this config property is set, it will override preexisting textContent',
+    showChars: true, // show the character counter
+    maxChars: 140,
+    invert: false, // show # of chars used rather than chars remaiining
+    style: false // add base styles
+  },
+  changer = $('#changer');
+
+  if (!Date.now) {
+    Date.now = function() {
+      return new Date().valueOf();
+    }
+  }
+
+  $(changer).on('click', function () {
+    var newString = Date.now() + ': Suddenly, everything has changed';
+    $(twt2).data('tweetthis').setContent(newString);
+  });
+  </script>
+</body>
+</html>

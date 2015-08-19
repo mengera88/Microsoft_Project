@@ -1,0 +1,357 @@
+.ut-feed-inner {
+    background: #fff;
+    border: 1px solid #eee;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 6px;
+    background-clip: padding-box;
+}
+
+#generic_data .ut-feed-item-inner {
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid #e3e3e3;
+}
+
+.ut-feed-inner > .ut-feed-item {
+    border-top: 1px solid #e8e8e8;
+    border-top: 1px solid rgba(0,0,0,.1);
+    background-clip: padding-box;
+    min-height: 51px;
+    padding: 9px 12px;
+}
+
+.ut-feed-item:first-child {
+    border: 0;
+}
+
+.ut-feed-item-username {
+    color: #999;
+    float: left;
+}
+
+.ut-feed-item-name {
+    float: left;
+    font-weight: bold;
+}
+
+.ut-feed-item-content {
+    clear: both;
+}
+
+.ut-feed-controls {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*height: 40px;*/
+    /*background: rgba(182, 177, 177, 0.65);*/
+    text-align: center;
+}
+
+.ut-feed-control {
+    display: inline-block;
+    width: 39%;
+    margin: 5%;
+    border: 1px solid #e3e3e3;
+    height: 20px;
+    line-height: 20px;
+    color: #e3e3e3;
+    background: rgb(114,114,114);
+    background: rgba(114, 114, 114, 0.65)
+}
+
+.ut-feed-up:before {
+    content: '\25B2';
+}
+
+.ut-feed-down:before {
+    content: '\25BC';
+}
+
+#tw-wrap {
+    max-width: 500px;
+    /*max-height: 480px;*/
+    margin: auto;
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.ut-feed-wrapper-twitter {
+    overflow-y: scroll;
+    /*-webkit-overflow-scrolling: touch;*/
+    height: 100%;
+}
+
+/*#ig_feed {
+    max-height: 480px;
+    overflow-y: scroll;
+    width: 306px;
+    position: relative;
+}*/
+
+.tw-tweet {
+    clear: both;
+    padding: 12px 12px 10px 69px;
+    border: 1px solid #e8e8e8;
+    border-width: 0 0 1px;
+    background: #fff;
+}
+
+.tw-header {
+    position: relative;
+    line-height: 18px;
+}
+
+.tw-permalink {
+    color: #707070;
+    position: relative;
+    z-index: 50;
+    float: right;
+    margin-top: 2px;
+}
+
+.tw-avatar {
+    position: absolute;
+    top: 0;
+    left: -57px;
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.tw-content {
+    font-size: 14px;
+    line-height: 16px;
+    margin: 0 5px 0 0;
+    overflow: visible;
+    clear: both;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.tw-full-name {
+    color: #292f33;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.tw-nickname {
+    margin-left: 2px;
+}
+
+.tw-retweet-credit {
+    margin: 3px 0;
+    color: #707070;
+    font-size: 12px;
+}
+
+.tw-action .tw-icon {
+    margin: 0 0 0 8px;
+    overflow: hidden;
+}
+
+.tw-icon, .ig-comments-icon {
+    display: inline-block;
+    vertical-align: middle;
+    background: transparent url(img/utfr_sprite.png) no-repeat 0 0;
+}
+
+.tw-icon-retweet {
+    width: 24px;
+    height: 16px;
+    margin-right: 4px;
+    background-position: -90px -8px;
+    background-color: #999;
+}
+
+.tw-icon-reply {
+    width: 18px;
+    height: 26px;
+    background-position: 0 0;
+    background-color: #999;
+}
+
+.tw-footer {
+    min-height: 16px;
+    padding-top: 1px;
+    margin-top: 2px;
+    overflow: hidden;
+    border-width: 0;
+    text-align: right;
+    visibility: hidden;
+}
+
+.tw-tweet:hover .tw-footer, .fpf .tw-footer {
+    visibility: visible;
+}
+
+.tw-footer .tw-icon-retweet {
+    width: 22px;
+    height: 26px;
+    background-position: -30px 0px;
+    background-color: #999;
+}
+
+.tw-icon-fav {
+    width: 16px;
+    height: 26px;
+    background-position: -60px 0;
+    background-color: #999;
+}
+
+.tw-icon-reply:hover, .tw-footer .tw-icon-retweet:hover, .tw-icon-fav:hover {
+    background-color: #000;
+}
+
+.tw-permalink:hover, .tw-header:hover .tw-full-name, .tw-content [data-uthref]:hover {
+    text-decoration: underline;
+}
+
+.tw-icon.clicked, .tw-icon.clicked:hover {
+    background-color: #ff9b00;
+    cursor: auto;
+}
+
+.tw-icon-retweet.clicked, .tw-icon-retweet.clicked:hover {
+    background-color: #609928;
+}
+
+[data-uthref], [data-utclickid] { cursor: pointer; }
+
+/*@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .tw-icon {
+        background-size: 88px 95px;
+    }
+
+    .tw-icon-retweet {
+        width: 7px;
+        height: 8px;
+        background-position: -10px -1px;
+    }
+
+    .tw-footer .tw-icon-retweet {
+        width: 11px;
+        height: 7px;
+        background-position: -15px -43px;
+    }
+
+    .tw-icon-reply {
+        width: 9px;
+        height: 7px;
+        background-position: 0 -43px;
+    }
+
+    .tw-icon-fav {
+        width: 8px;
+        height: 7px;
+        background-position: -30px -43px;
+    }
+}*/
+
+
+/***
+ * INSTAGRAM
+ *
+ ***/
+
+#ig-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.ut-feed-wrapper-instagram {
+    width: 306px;
+    max-width: 100%;
+    overflow-y: scroll;
+    /*-webkit-overflow-scrolling: touch;*/
+    margin: auto;
+}
+
+.ig-wrapper {
+    position: relative;
+    padding: 10px;
+    background: #fff;
+    margin: auto;
+}
+
+.ig-gram {
+    margin-bottom: 20px;
+}
+
+.ig-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.ig-header {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.ig-header:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+}
+
+.ig-username {
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.ig-timestamp, .ig-avatar {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ig-timestamp {
+    right: 0;
+    position: absolute;
+    top: 14px;
+}
+
+.ig-content > img {
+    max-width: 100%;
+    height: auto;
+}
+
+.ig-stats {
+    text-align: right;
+}
+
+.ig-likes, .ig-comments {
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.ig-likes:before {
+    content: '♥';
+    color: rgb(153, 153, 153);
+    font-size: 16px;
+    padding-right: 2px;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.ig-comments .ig-comments-icon {
+    width: 11px;
+    height: 16px;
+    margin-right: 0;
+    background-position: -138px -9px;
+    background-color: #999;
+}

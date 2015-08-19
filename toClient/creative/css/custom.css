@@ -1,0 +1,146 @@
+.utvp_player_frame,
+.utvp_video,
+.utvp_slate,
+.utvp_cover,
+.utvp_play_toggle_wrapper_insert {
+  background-color: rgba(0, 0, 0, 0.01) !important;
+}
+/* play button container */
+.utvp_player_frame,
+object {
+  width: 100% !important;
+  height: 100% !important;
+}
+.utvp_play_toggle {
+  opacity: 1 !important;
+}
+/*.utvp_play_toggle_wrapper{
+    display: block !important;
+}*/
+/* video height */
+.utvp_player_frame,
+.utvp_video {
+  height: auto!important;
+}
+video {
+  height: auto !important;
+}
+.video {
+  width: 100.2%!important;
+}
+/* time */
+.utvp_time_current,
+.utvp_time_duration {
+  display: none !important;
+}
+/* sound progress */
+.utvp_volume_slider {
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  -moz-transform: translate3d(0, 0, 0) !important;
+  -ms-transform: translate3d(0, 0, 0) !important;
+  -o-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+.utvp_controls.full .utvp_volume_bar {
+  height: 9px !important;
+  top: 11px !important;
+}
+/* global */
+.utvp_player_frame {
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+  height: 100% !important;
+}
+.utvp_controls,
+.picture-holder,
+.utvp_play_toggle,
+.utvp_buffer_wrapper,
+.utvp_slate,
+.utvp_player_frame {
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  -moz-transform: translate3d(0, 0, 0) !important;
+  -ms-transform: translate3d(0, 0, 0) !important;
+  -o-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+/* play button */
+.icon-play-toggle:before {
+  content: '' !important;
+  position: absolute !important;
+  background: url(video/skin/playBtn.png) center center no-repeat !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 94px !important;
+  height: 94px !important;
+  margin: -47px 0 0 -47px !important;
+  opacity: 1 !important;
+  background-size: 100% 100%!important;
+}
+.utvp_play_toggle_wrapper:hover .icon-play-toggle:before {
+  background-image: url(video/skin/playOver.png) !important;
+}
+.videoComplete .icon-play-toggle:before {
+  background-image: url(video/skin/replayBtn.png) !important;
+}
+.videoComplete .utvp_play_toggle_wrapper:hover .icon-play-toggle:before {
+  background-image: url(video/skin/replayOver.png) !important;
+}
+.mobile .utvp_controls.full .utvp_progress_bar {
+  width: 80% !important;
+}
+.tablet .utvp_controls.full .utvp_progress_bar {
+  width: 85% !important;
+}
+.iphone .utvp_controls {
+  display: none !important;
+}
+/* play button */
+.utvp_control_bar_buttons {
+  color: #5c5c5c!important;
+}
+.utvp_control_bar_buttons:hover {
+  color: #fff!important;
+}
+/* progress bar */
+.utvp_progress_down {
+  background-color: #5c5c5c!important;
+}
+.utvp_progress_current {
+  background-color: #fff !important;
+}
+.full.utvp_controls .utvp_progress_bar {
+  width: 76% !important;
+  height: 10px !important;
+}
+.minimal.utvp_controls .utvp_progress_bar {
+  display: none !important;
+}
+.iphone .utvp_controls {
+  display: none;
+}
+/* sound progress */
+.utvp_controls.full .utvp_volume_slider {
+  background-color: #ccc;
+}
+.utvp_controls.full .utvp_volume_bar {
+  background-color: #333;
+}
+@media only screen and (max-width: 600px) {
+  .full.utvp_controls .utvp_progress_bar {
+    width: 68% !important;
+    height: 10px !important;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .icon-play-toggle:before {
+    width: 50px !important;
+    height: 50px !important;
+    margin: -25px 0 0 -25px !important;
+    background-image: url(video/skin/mobilePlayBtn.png) !important;
+  }
+  .videoComplete .icon-play-toggle:before {
+    background-image: url(video/skin/mobileReplayBtn.png) !important;
+  }
+}

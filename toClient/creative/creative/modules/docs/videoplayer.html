@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Video Player module demo</title>
+  <script id="ut_creativeLib">
+      // This detects whether the browser requires the Zepto or jQuery library
+      document.write('<script src=../../js/' +
+      ('__proto__' in {} ? 'zepto' : 'jquery') +
+      '.min.js><\/script>');
+  </script>
+  <!-- <script src="../dist/ut.tweetthis.min.js"></script> -->
+  <script src="../js/ut_videoplayer.js"></script>
+  <!-- // <script src="../js/creative.min.js"></script> -->
+  <script src="run_prettify.js"></script>
+  <style>
+    body {
+      font-size: 14px;
+      line-height: 22px;
+      background: #fff;
+      color: #000;
+      font-weight: 300;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    p {
+      margin: 20px 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      padding-top: 1.5em;
+      line-height: 1.1;
+      font-weight: 500;
+    }
+    h1:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      font-size: 2.2em;
+      font-weight: 200;
+    }
+    h2 {
+      font-size: 20px;
+      padding-bottom: .5em;
+    }
+    h4 { padding-top: .5em }
+    article { padding: 20px; }
+    pre, code {
+     white-space: pre-wrap;       /* css-3 */
+     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap;      /* Opera 4-6 */
+     white-space: -o-pre-wrap;    /* Opera 7 */
+     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <h1>Video Player Module</h1>
+    <h2>Basic usage</h2>
+    <p>First, use the zepto.min.js file included with this plugin. Then just add the script <code class="prettyprint">&lt;script src=&quot;js/ut_videoplayer.js&quot;&gt;&lt;/script&gt;</code> and pass a DOM element to the <code>ut_videoplayer()</code> function! (Note that the icon fonts used for the video player controls will only appear if you're serving the ad via localhost or other means, due to cross-domain origin request limitations.)</p>
+    <pre><code class="prettyprint">
+      &lt;div id=&quot;video_container&quot;&gt;&lt;/div&gt;
+      &lt;script&gt;
+        var vp = $(&#39;#video_container&#39;).ut_videoplayer({
+          source_webm: &quot;http://media.w3.org/2010/05/sintel/trailer.webm&quot;,
+          source_mp4: &quot;http://media.w3.org/2010/05/sintel/trailer.mp4&quot;,
+          slate: &quot;../img/begin_slate1.jpg&quot;
+          endSlate: &quot;../img/end_slate1.jpg&quot;
+      });
+      &lt;/script&gt;
+    </pre></code>
+    <div id="video_container"></div>
+
+    <h2>Configuration</h2>
+    <p>You've got some configuration options that are set as properties of a config object passed as a parameter of the <code class="prettyprint">ut_videoplayer(config)</code> function. These are the defaults:
+
+    <pre><code class="prettyprint">
+      &lt;div id=&quot;video_container&quot;&gt;&lt;/div&gt;
+      &lt;script&gt;
+        var config = {
+          source_webm: &quot;http://media.w3.org/2010/05/sintel/trailer.webm&quot;, // required
+          source_mp4: &quot;http://media.w3.org/2010/05/sintel/trailer.mp4&quot;, // required
+          slate: &quot;slates/begin_slate1.jpg&quot;, // required - image shown in the player before play (defaults to black)
+          endSlate: &quot;slates/end_slate1.jpg&quot;, // required - image shown in the player after completion (defaults to black, or the slate if it is defined)
+          displayHidden: false, // (bool) initialize a hidden player
+          aspectRatio: &quot;16:9&quot;, // width will default to 100% of its container, and the height will be set according to this ratio,
+          width: 640, // (int) width in pixels - overrides aspectRatio
+          height: 360, // (int) height in pixels - overrides aspectRatio
+          muted: false, // (bool) initialize the player in a muted state,
+          volume: 0.75, // (0-1)
+          clickID: 1, // (int) clicks redirect to the corresponding click
+        };
+
+        var vp = $(&#39;#video_container&#39;).ut_videoplayer(config);
+      &lt;/script&gt;
+    </pre></code>
+
+    <h2>Methods</h2>
+    <p>After storing a reference to the object returned by <code class="prettyprint">ut_videoplayer()</code>, you can then call the following methods on it:</p>
+
+    <ul>
+      <li><code class="prettyprint">vp.play()</code> should be bound to a user interaction, as autoplay is not supported across browsers and devices.</li>
+      <li><code class="prettyprint">vp.pause()</code></li>
+      <li><code class="prettyprint">vp.paused()</code> returns <code>boolean</code></li>
+      <li><code class="prettyprint">vp.showPlayer()</code></li>
+      <li><code class="prettyprint">vp.hidePlayer()</code></li>
+      <li><code class="prettyprint">vp.mute(boolean)</code> toggle mute status.</li>
+      <li><code class="prettyprint">vp.clickable(boolean)</code> toggle clickability of all video player elements.</li>
+      <li><code class="prettyprint">vp.isClickable()</code> returns <code>boolean</code>.</li>
+  </article>
+  <script>
+
+  var vp = $('#video_container').ut_videoplayer({
+    source_webm: "http://media.w3.org/2010/05/sintel/trailer.webm",
+    source_mp4: "http://media.w3.org/2010/05/sintel/trailer.mp4",
+    slate: '../img/begin_slate1.jpg',
+    endSlate: '../img/end_slate1.jpg',
+    fontDirectory: '../fonts/',
+    swfLocation: '../swf/FallbackPlayer.swf'
+  });
+
+  if (!Date.now) {
+    Date.now = function() {
+      return new Date().valueOf();
+    }
+  }
+
+  </script>
+</body>
+</html>

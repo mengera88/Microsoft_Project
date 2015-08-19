@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Pin This module demo</title>
+  <script id="ut_creativeLib">
+      // This detects whether the browser requires the Zepto or jQuery library
+      document.write('<script src=../../js/' +
+      ('__proto__' in {} ? 'zepto' : 'jquery') +
+      '.min.js><\/script>');
+  </script>
+  <script src="../js/ut.pinthis.js"></script>
+  <script src="../../js/creative.min.js"></script>
+  <script src="run_prettify.js"></script>
+  <style>
+    body {
+      font-size: 14px;
+      line-height: 22px;
+      background: #fff;
+      color: #000;
+      font-weight: 300;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    p {
+      margin: 20px 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      padding-top: 1.5em;
+      line-height: 1.1;
+      font-weight: 500;
+      clear: left;
+    }
+    h1:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      font-size: 2.2em;
+      font-weight: 200;
+    }
+    h2 {
+      font-size: 20px;
+      padding-bottom: .5em;
+    }
+    h4 { padding-top: .5em }
+    article { padding: 20px; }
+    pre {
+     white-space: pre-wrap;       /* css-3 */
+     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap;      /* Opera 4-6 */
+     white-space: -o-pre-wrap;    /* Opera 7 */
+     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    }
+    .pinIt, .pinIt-config {
+      float: left;
+      position:
+      relative;
+      width: 30%;
+      margin-right: 3%
+    }
+    .pinIt > img, .pinIt-config > img {
+      /*max-width: 30%;*/
+      max-width: 100%;
+    }
+    .ut-pin-this-button, .pinButton {
+      cursor: pointer;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+    }
+    .name { display: none; }
+  </style>
+</head>
+<body>
+  <article>
+    <h1>UT Pin This Module</h1>
+    <h2>Basic usage</h2>
+
+    <p>First, use the zepto.min.js file included with this plugin. Then just add the script <code class="prettyprint">&lt;script src=&quot;modules/js/ut.pinthis.js&quot;&gt;&lt;/script&gt;</code> and pass a DOM element or selector to the <code>pinthis()</code> function! Each element passed to the method will need to have the following data-attributes:</p>
+
+    <ul>
+      <li><code>data-pin-name</code>: the item name. This won't be displayed in the pin itself, and will only be used for tracking purposes. Treat it as a slug: keep it short, and use underscores rather than spaces or hyphens.</li>
+      <li><code>data-pin-url</code>: the URL to which Pinterest will redirect users who click on the Pin created with our Pin This button. This will likely be a URL specific to purchasing the image/product displayed.</li>
+      <li><code>data-pin-media</code>: the image to be pinned. This needs to be an absolute URL to an image file that should likely be higher-resolution than the image used in the ad.</li>
+      <li><code>data-pin-description</code>: the pre-populated Pin description.</li>
+    </ul>
+
+
+
+    <p>The image displayed to represent the product within the ad should either be implemented as a background image of the containing element, or as a child IMG element. This module simply generates a button, appends it to the passed container, and when the button is clicked, it assembles the URL with all query variables needed to Pin something. For example, given this code:</p>
+
+    <pre><code class="prettyprint">
+      &lt;div class=&quot;pinWrap&quot;&gt;
+        &lt;div class=&quot;pinIt&quot;
+          data-pin-name=&quot;tile_sweater&quot;
+          data-pin-url=&quot;http://www.jcrew.com/womens_feature/NewArrivals/sweaters/PRDOVR~02696/02696.jsp&quot;
+          data-pin-media=&quot;http://s7.jcrew.com/is/image/jcrew/02696_KP5728_m?$pdp_fs418$&quot;
+          data-pin-description=&quot;Handknit Tile Sweater&quot;&gt;
+          &lt;img src=&quot;img/jcrew_1.jpeg&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;pinIt&quot;
+        data-pin-name=&quot;lace_sweater&quot;
+          data-pin-url=&quot;http://www.jcrew.com/womens_feature/NewArrivals/sweaters/PRDOVR~07397/07397.jsp&quot;
+          data-pin-media=&quot;http://s7.jcrew.com/is/image/jcrew/07397_KP0663_m?$pdp_fs418$&quot;
+          data-pin-description=&quot;Merino Embroidered Lace Sweater&quot;&gt;
+          &lt;img src=&quot;img/jcrew_2.jpeg&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;pinIt&quot;
+        data-pin-name=&quot;color_sweater&quot;
+          data-pin-url=&quot;http://www.jcrew.com/womens_feature/NewArrivals/sweaters/PRDOVR~06048/06048.jsp&quot;
+          data-pin-media=&quot;http://s7.jcrew.com/is/image/jcrew/06048_KP1177_m?$pdp_fs418$&quot;
+          data-pin-description=&quot;Colorblock Intarsia Sweater&quot;&gt;
+          &lt;img src=&quot;img/jcrew_3.jpeg&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;script&gt;
+        $(&#39;.pinIt&#39;).pinthis();
+      &lt;/script&gt;
+    </code></pre>
+
+    <p>Yeilds:</p>
+
+    <div class="pinWrap">
+      <div class="pinIt"
+        data-pin-name="tile_sweater"
+        data-pin-url="http://www.jcrew.com/womens_feature/NewArrivals/sweaters/PRDOVR~02696/02696.jsp"
+        data-pin-media="http://s7.jcrew.com/is/image/jcrew/02696_KP5728_m?$pdp_fs418$"
+        data-pin-description="Handknit Tile Sweater">
+        <img src="http://s7.jcrew.com/is/image/jcrew/02696_KP5728_m?$pdp_fs418$" class="media">
+      </div>
+      <div class="pinIt"
+      data-pin-name="lace_sweater"
+        data-pin-url="http://www.jcrew.com/womens_feature/NewArrivals/sweaters/PRDOVR~07397/07397.jsp"
+        data-pin-media="http://s7.jcrew.com/is/image/jcrew/07397_KP0663_m?$pdp_fs418$"
+        data-pin-description="Merino Embroidered Lace Sweater">
+        <img src="http://s7.jcrew.com/is/image/jcrew/07397_KP0663_m?$pdp_fs418$">
+      </div>
+      <div class="pinIt"
+      data-pin-name="color_sweater"
+        data-pin-url="http://www.jcrew.com/womens_feature/NewArrivals/sweaters/PRDOVR~06048/06048.jsp"
+        data-pin-media="http://s7.jcrew.com/is/image/jcrew/06048_KP1177_m?$pdp_fs418$"
+        data-pin-description="Colorblock Intarsia Sweater">
+        <img src="http://s7.jcrew.com/is/image/jcrew/06048_KP1177_m?$pdp_fs418$">
+      </div>
+    </div>
+
+    <script>
+      $('.pinIt').pinthis();
+    </script>
+
+    <h2>Configuration</h2>
+    <p>You can pass a configuration object into the pinthis method, and these are the optional properties:</p>
+
+    <pre><code class="prettyprint">
+      var config = {
+        nameSelector: '.name',
+        existingButtonSelector: '.pinButton',
+        descriptionSelector: '.description',
+        mediaSelector: '.media',
+        customButton: &#39;&lt;div class=&quot;custom-button-markup&quot;&gt;Pin This&lt;/div&gt;&#39;
+      }
+    </code></pre>
+
+    <ul>
+      <li><code>nameSelector</code>: If the item name is already present in the markup, provide a selector we can use as the name (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI">URI encoded</a>) for tracking purposes.</li>
+      <li><code>existingButtonSelector</code>: Rather than appending our stock Pinterest button, uses markup you already have. Must be a child of the element passed to the method.</li>
+      <li><code>descriptionSelector</code>: If the Pin element already contains a description element, define that selector here and we'll grab the description text from there instead.</li>
+      <li><code>mediaSelector</code>: If there is an <code>IMG</code> element whose <code>src</code> we can use as the Pin media image, give that selector.</li>
+      <li><code>customButton</code>: Takes a string of markup, appends it to each element, and binds the <code>window.open</code>  to its <code>"click"</code> event. This is useful if your markup does not already have a custom button, but you do not want to use the default button.</li>
+    </ul>
+
+    <p>Using all of the optional configuration options, you could achieve the same result as above by using the below markup:</p>
+
+    <pre><code class="prettyprint">
+      &lt;div class=&quot;pinWrap&quot;&gt;
+        &lt;div class=&quot;pinIt-config&quot; data-pin-url=&quot;http://www.jcrew.com/womens_feature/NewArrivals/sweaters/PRDOVR~02696/02696.jsp&quot;&gt;
+          &lt;img src=&quot;http://s7.jcrew.com/is/image/jcrew/02696_KP5728_m?$pdp_fs418$&quot; class=&quot;media&quot;&gt;
+          &lt;div class=&quot;name&quot;&gt;Tile Sweater&lt;/div&gt;
+          &lt;div class=&quot;description&quot;&gt;Handknit Tile Sweater&lt;/div&gt;
+          &lt;div class=&quot;pinButton&quot;&gt;
+            &lt;img src=&quot;http://images.undertone.com/ut/re/modules/pinthis/img/pin_it_button.png&quot;&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;pinIt-config&quot; data-pin-url=&quot;http://www.jcrew.com/womens_feature/NewArrivals/sweaters/PRDOVR~07397/07397.jsp&quot;&gt;
+          &lt;img src=&quot;http://s7.jcrew.com/is/image/jcrew/07397_KP0663_m?$pdp_fs418$&quot; class=&quot;media&quot;&gt;
+          &lt;div class=&quot;name&quot;&gt;Lace Sweater&lt;/div&gt;
+          &lt;div class=&quot;description&quot;&gt;Merino Embroidered Lace Sweater&lt;/div&gt;
+          &lt;div class=&quot;pinButton&quot;&gt;
+            &lt;img src=&quot;http://images.undertone.com/ut/re/modules/pinthis/img/pin_it_button.png&quot;&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;pinIt-config&quot; data-pin-url=&quot;http://www.jcrew.com/womens_feature/NewArrivals/sweaters/PRDOVR~06048/06048.jsp&quot;&gt;
+          &lt;img src=&quot;http://s7.jcrew.com/is/image/jcrew/06048_KP1177_m?$pdp_fs418$&quot; class=&quot;media&quot;&gt;
+          &lt;div class=&quot;name&quot;&gt;Color Sweater&lt;/div&gt;
+          &lt;div class=&quot;description&quot;&gt;Colorblock Intarsia Sweater&lt;/div&gt;
+          &lt;div class=&quot;pinButton&quot;&gt;
+            &lt;img src=&quot;http://images.undertone.com/ut/re/modules/pinthis/img/pin_it_button.png&quot;&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;script&gt;
+        $(&#39;.pinIt-config&#39;).pinthis({
+          existingButtonSelector: &#39;.pinButton&#39;,
+          descriptionSelector: &#39;.description&#39;,
+          nameSelector: &#39;.name&#39;,
+          mediaSelector: &#39;.media&#39;
+        });
+      &lt;/script&gt;
+    </code></pre>
+
+    <div class="pinWrap">
+      <div class="pinIt-config" data-pin-url="http://www.jcrew.com/womens_feature/NewArrivals/sweaters/PRDOVR~02696/02696.jsp">
+        <img src="http://s7.jcrew.com/is/image/jcrew/02696_KP5728_m?$pdp_fs418$" class="media">
+        <div class="name">Tile Sweater</div>
+        <div class="description">Handknit Tile Sweater</div>
+        <div class="pinButton">
+          <img src="http://images.undertone.com/ut/re/modules/pinthis/img/pin_it_button.png">
+        </div>
+      </div>
+      <div class="pinIt-config" data-pin-url="http://www.jcrew.com/womens_feature/NewArrivals/sweaters/PRDOVR~07397/07397.jsp">
+        <img src="http://s7.jcrew.com/is/image/jcrew/07397_KP0663_m?$pdp_fs418$" class="media">
+        <div class="name">Lace Sweater</div>
+        <div class="description">Merino Embroidered Lace Sweater</div>
+        <div class="pinButton">
+          <img src="http://images.undertone.com/ut/re/modules/pinthis/img/pin_it_button.png">
+        </div>
+      </div>
+      <div class="pinIt-config" data-pin-url="http://www.jcrew.com/womens_feature/NewArrivals/sweaters/PRDOVR~06048/06048.jsp">
+        <img src="http://s7.jcrew.com/is/image/jcrew/06048_KP1177_m?$pdp_fs418$" class="media">
+        <div class="name">Color Sweater</div>
+        <div class="description">Colorblock Intarsia Sweater</div>
+        <div class="pinButton">
+          <img src="http://images.undertone.com/ut/re/modules/pinthis/img/pin_it_button.png">
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $('.pinIt-config').pinthis({
+        existingButtonSelector: '.pinButton',
+        descriptionSelector: '.description',
+        nameSelector: '.name',
+        mediaSelector: '.media'
+      });
+    </script>
+
+    <h2>Events</h2>
+    <p>Clicking on the "Pin it" button will track a <code>Pinterest_pinned</code> event on an element with the item's name (whatever was defined by the <code>data-pin-name</code> attribute, or supplied as the <code>textContent/innerText</code> in an element specified by <code>nameSelector</code>, with hyphens and spaces converted to underscores and then URIencoded).</p>
+  </article>
+</body>
+</html>

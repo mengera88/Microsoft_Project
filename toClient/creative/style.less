@@ -1,0 +1,738 @@
+@import "less/common";
+@import "less/custom";
+@import "less/myless";
+
+/*============= Main CSS =============*/
+.preload img{
+    width: 100%; 
+    height: auto;
+}
+
+.lt-ie9{
+    .ie8_hidden{
+        visibility: hidden;
+    }
+}
+#ad_choices{
+    background-color: rgba(255,255,255,0.99) !important;
+}
+.wrapper-container{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.wrapper-1280{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+body, .leavebehind, .interactive {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.leavebehind, .interactive{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.placeholder{
+  background-color: #B4B1B1;
+}
+.leavebehind{
+    height: 90px;
+    visibility: hidden;
+    background-color: #5c5c5c;
+    .icon{
+        background-color: red;
+        width: 100px;
+        height: 100%;
+        top: 0;
+        position: absolute;
+    }
+    .leavebehind-container{
+        height: 100%;
+        width: 100%;
+        background-color: #5c5c5c;
+        
+        .fl{
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            margin-left: 3%;
+        }
+        .one{
+           width: 21%;
+           max-width: 311px;
+    
+        }
+        .oneMobile{
+          display: none;
+        }
+        .two{
+            width: 8%;
+            max-width: 139px;
+        }
+        .twoTablet{
+            display: none;
+        }
+        .three{
+           width: 22%;
+           max-width: 306px;
+        }
+        .threeTablet{
+          display: none;
+        }
+        .four{
+            width: 14%;
+           max-width: 176px;
+        }
+        .five{
+            margin-left: 3%;
+            width: 9%;
+            max-width: 106px;
+        }
+        .fiveMobile{
+          display: none;
+        }
+    }
+    .leavebehind-container:before{
+        content: ' ';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+    }
+}
+
+.interactive{
+    height: 100%;
+    background-color: #5c5c5c;
+
+    .interactive-container{
+        height: 100%;
+        .mobile_part{
+            display: none;
+        }
+        .microLogoMobile{
+            display: none;
+        }
+        .mengban{
+            visibility: hidden;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            z-index: 1000;
+            background:rgba(0,0,0,0.8);
+        }
+        .bgFrame{
+            position: absolute;
+            z-index: 29;
+            left: 0;
+            width: 77%;
+            height: 100%;
+            max-width: 985px;
+            background-image: url(img/bgPlay.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .video-iphone{
+            display: none;
+
+        }
+        .playBtn{
+            position: absolute;
+            width: 10%;
+            max-width: 118px;
+            top: 39%;
+            left: 32%;
+            z-index: 400;
+        }
+        .bgFrameRight{
+            position: absolute;
+            width: 24%;
+            background-color: #5c5c5c;
+            height: 100%;
+            right: 0;
+            top: 0;
+        }
+        .microLogo{
+            position: absolute;
+            width: 8.6%;
+            max-width: 110px;
+            z-index: 2;
+            top: 5%;
+            left: 79%;
+        }
+        .microLogoTablet{
+            display: none;
+        }
+        .text{
+            position: absolute;
+            width: 20%;
+            max-width: 250px;
+            z-index: 2;
+            top: 17%;
+            left: 79%;
+        }
+        .computerImg{
+            position: absolute;
+            z-index: 2;
+            top: 40%;
+            left: 80%;
+            width: 17%;
+            max-width: 214px;
+        }
+        .computerTabletImg{
+            display: none;
+        }
+        .cta{
+            width: 10%;
+            height: 40px;
+            position: relative;
+            z-index: 2;
+            top: 85%;
+            left: 80%;
+            background-color: #fff;
+            overflow: hidden;
+            text-align: center;
+            .normal{
+              position: absolute;
+              top: 20px;
+              margin-top: -15px;
+            }
+           .translate3d(0,0,0);
+        }
+    }
+    .icon{
+        background-color: red;
+        width: 100px;
+        height: 100%;
+        top: 0;
+        position: absolute;
+    }
+}
+.utvp_buffer_wrapper{
+  text-align: center !important;
+}
+.video-container{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    width: 60%;
+    z-index: 2000;
+    /*.utvp_buffer_wrapper{
+      margin-left: 1px !important;
+    }*/
+    /*video{
+        -webkit-transform:scale(1.00001);
+        -moz-transform:scale(1.00001);
+        -o-transform:scale(1.00001);
+        -ms-transform:scale(1.00001);
+      }*/
+    
+    
+    #vdo_close{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 999999;
+        cursor: pointer;
+        width: 47px;
+        height: 47px;
+        img{
+            width: 100%;
+        }
+    }
+}
+
+.mobile{
+
+    .leavebehind{
+        height: 50px;
+        .leavebehind-container{
+          .fl{
+            margin-left: 3%;
+          }
+            .three {
+              display: none;
+            }
+            .threeTablet{
+              display: none;
+            }
+            .four{
+                display: none;
+            }
+            .one{
+                display: none;
+            }
+            .oneMobile{
+              display: inline-block;
+              width: 30%;
+              max-width: 258px;
+              vertical-align: middle;
+              margin-left: 5%;
+            }
+            .twoTablet{
+                width: 13%;
+                margin-left: 10%;
+            }
+            .five{
+                display: none;
+            }
+            .fiveMobile{
+              display: inline-block;
+              width: 20%;
+              max-width: 126px;
+              vertical-align: middle;
+              margin-left: 8%;
+            }
+        }
+    }
+    .interactive{
+        height: 100%;
+        .interactive-container{
+            .mobile_part{
+                display: block;
+                width: 100%;
+                background-color: #5c5c5c;
+                height: 13%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 29;
+                
+            }
+            .microLogoMobile{
+                display: block;
+                position: absolute;
+                width: 30%;
+                max-width: 96px;
+                top: 5%;
+                left: 7%;
+                z-index: 30;
+            }
+            .bgFrame{
+                width: 100%;
+                height: 50%;
+                position: absolute;
+                top: 13%;
+                background-image: url(img/bgFrameMobile.png);
+            }
+            .playBtn{
+              top: 31%;
+                width: 20%;
+                left: 39%;
+            }
+            .bgFrameRight{
+                width: 100%;
+                position: absolute;
+                top: 63%;
+                height: 37%;
+                background-color: #5c5c5c;
+                bottom: 0;
+            }
+            .microLogo{
+                display: none;
+            }
+            .microLogoTablet{
+                display: none;
+            }
+            .text{
+                width: 55%;
+                position: absolute;
+                top: 70%;
+                left: 4%;
+               
+            }
+            .computerImg{
+               display:none;
+            }
+            .computerTabletImg{
+                
+                display: block;
+                position: absolute;
+                left: 59%;
+                width: 35%;
+                max-width: 214px;
+                top: 68%;
+                z-index: 30;
+            }
+            .cta{
+                position: relative;
+                top: 86%;
+                left: 4%;
+                width: 25%;
+                height: 30px;
+                .normal{
+              top: 15px;
+              margin-top: -15px;
+              
+            }
+            }
+            .video-container{
+              width: 100%;
+              @media screen and (orientation:landscape){
+                width: 616px !important;
+                height: 346px !important;
+                video{
+                  height: 346px !important;
+                  width: 616px !important;
+                }
+              }
+            }
+          }
+    }
+    @media screen and (orientation:landscape) {
+     .leavebehind{
+        .leavebehind-container{
+          
+           .oneMobile{
+               width:18%;
+               vertical-align: middle;
+               margin-left: 10%
+           }
+           .twoTablet{
+                width: 10%;
+                vertical-align: middle;
+               margin-left: 10%;
+            }
+            .threeTablet{
+              display: inline-block;
+              width: 10%;
+              max-width: 116px;
+              vertical-align: middle;
+              margin-left: 5%;
+            }
+            .fiveMobile{
+                width: 10%;
+                max-width: 106px;
+                margin-left: 10%;
+                vertical-align: middle;
+            }
+        }
+     }
+   }
+}
+.s5{
+    .leavebehind{
+        height: 100px;
+    }
+}
+.s4{
+
+}
+.nexus7{
+    @media screen and (min-width: 900px){
+        .wrapper-1280{
+            max-height: 441px;
+        }
+
+        .opened #ad_choices{
+            bottom: 0!important;
+            top: auto!important;
+        }
+    }
+}
+
+
+.iphone.ios8{
+    /*.leavebehind{
+        height: 50px;
+        .leavebehind-container{
+              .twoTablet{
+                width: 15%;
+              }
+          }
+        }*/
+    .interactive{
+         .interactive-container{
+            .bgFrame{
+
+            }
+            .playBtn{
+              top: 30%;
+              z-index: 400;
+            }
+             .bgFrameRight{
+                 top: 62%;
+                 height: 55%;
+             }
+             .computerImg{
+                 top: 50%;
+             }
+             .text {
+                 top: 65%;
+             }
+             
+         }
+        
+    }
+    
+    @media screen and (max-height:630px){
+        //iphone6 plus
+    }
+    @media screen and (max-height:550px){
+        //iphone6
+        body {
+            margin-left: 0px;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+    }
+    @media screen and (max-height:450px){
+        //iphone5/5s ios8
+    }
+}
+.iphone.ios7{
+      .interactive{
+         .interactive-container{
+
+            .playBtn{
+              top: 30%;
+              z-index: 400;
+            }
+             .bgFrameRight{
+                 top: 62%;
+                 height: 55%;
+             }
+             .computerImg{
+                 top: 64%;
+             }
+             .text {
+                 top: 68%;
+             }
+            
+         }
+        
+    }
+    
+    //iphone5 ios7
+}
+@media screen and (max-width: 1024px) {
+  .interactive .interactive-container .cta{
+    height: 35px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+    
+    .interactive{
+        height: 100%;
+        background-color: #3498db;
+
+        .interactive-container{
+            height: 100%;
+            .bgFrame{
+                width: 100%;
+                height: 80%;
+           }
+            .bgFrameRight{
+                width: 100%;
+                top: 80%;
+                height: 20%;
+                z-index: 29;
+           }
+           .playBtn{
+               left: 45%;
+               top: 34%;
+           }
+           .microLogo{
+               display: none;
+           }
+           .microLogoTablet{
+               display: block;
+               width: 15%;
+               max-width: 105px;
+               position: absolute;
+               top: 87%;
+               left: 2%;
+               z-index: 30;
+           }
+           .text{
+                z-index: 30;
+                top: 85%;
+                left: 24%;
+                width: 27%;
+           }
+           .computerImg{
+               display: none;
+           }
+           .computerTabletImg{
+               display: block;
+               width: 11%;
+               max-width: 80px;
+               position: absolute;
+               top: 83%;
+               left: 58%;
+               z-index: 30;
+           }
+           .cta{
+                width: 17%;
+                z-index: 30;
+                top: 85%;
+                left: 77%;
+                .normal{
+                  margin-top: -17px;
+                }
+
+           }
+      }
+  }
+  .video-container{
+      width: 100%;
+  }
+  .leavebehind{
+      .leavebehind-container{
+          .fl{
+              margin-left: 3%;
+          }
+          .one{
+              width: 23%;
+          }
+          .two{
+              display: none;
+          }
+          .twoTablet{
+              display: inline-block;
+              width: 11%;
+              max-width: 126px;
+              margin-left: -2%;
+          }
+          .three{
+              display: none;
+           
+        }
+        .threeTablet{
+          display: inline-block;
+          width: 16%;
+          max-width: 116px;
+          vertical-align: middle;
+          margin-left: 3%;
+        }
+        .four{
+           
+            width: 17%;
+           
+        }
+        .five{
+            width: 11%;
+          
+        }
+          
+      }
+  }
+    
+}
+@media screen and (max-width: 600px) {
+    .interactive{
+        .interactive-container {
+            .microLogoTablet{
+                left: 1%;
+                top: 88%;
+            }
+            .text{
+                left: 21%;
+               width: 28%;
+            }
+            .computerTabletImg{
+                left: 56%;
+                width: 13%;
+            }
+            .cta{
+                
+            
+                left: 76%;
+           }
+        }
+    }
+    .leavebehind {
+        .leavebehind-container{
+            .one{
+                h1{
+                    font-size: 14px;
+                }
+            }
+            .twoTablet{
+                width: 10%;
+            }
+            .three{
+                p{
+                    font-size: 14px;
+                }
+            }
+            .four{
+                p{
+                    font-size: 12px;
+                }
+            }
+        }
+    } 
+}
+@media screen and (max-width: 480px) {
+     .interactive{
+        .interactive-container {
+           .microLogoTablet{
+                left: 3%;
+            }
+            .text{
+                top: 87%;
+            }
+            .computerTabletImg{
+                top: 85%;
+                left: 54%;
+            }
+            .cta{
+                
+                left: 71%;
+                .normal{
+                  margin-top: -15px;
+                }
+              
+           }
+
+          }
+        }
+}
+@media screen and (max-width: 360px) {
+    
+}
+
+@media screen and (max-width: 320px) {
+    
+}
+
+@media screen and (max-width: 320px) and (max-height: 480px){
+    
+}
+
+@media screen and (max-width: 320px) and (max-height: 450px){
+    
+}
+
+@media screen and (max-width: 320px) and (max-height: 420px){
+    
+}
+
+@media screen and (max-width: 320px) and (max-height: 400px){
+    
+}

@@ -1,0 +1,1085 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body,
+div,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+img {
+  display: block;
+  border: 0;
+  width: 100%;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+.clear_both {
+  clear: both;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.clearfix {
+  display: block;
+}
+* html .clearfix {
+  height: 1%;
+}
+a {
+  text-decoration: none;
+}
+a:active,
+a:focus,
+input {
+  outline: 0;
+  outline-style: none;
+  outline-width: 0;
+}
+/*============= Reset =============*/
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+/*============= End Reset =============*/
+#ut_close,
+#ut_open {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 999999;
+  cursor: pointer;
+  width: 47px;
+  height: 47px;
+  visibility: hidden;
+}
+#ut_close img,
+#ut_open img {
+  width: 100%;
+  height: 100%;
+}
+body.closed #ut_close,
+body.opened #ut_open {
+  visibility: hidden;
+}
+body.opened #ut_close,
+body.closed #ut_open {
+  visibility: visible;
+}
+#ut_close {
+  visibility: visible;
+}
+#ut_close.rotate-ani,
+#ut_open.rotate-ani {
+  -webkit-animation: btn-rotating 0.4s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+  -moz-animation: btn-rotating 0.4s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+  -o-animation: btn-rotating 0.4s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+  animation: btn-rotating 0.4s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+}
+#ut_close.opacity-ani,
+#ut_open.opacity-ani {
+  -webkit-animation: btn-opacity 0.8s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+  -moz-animation: btn-opacity 0.8s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+  -o-animation: btn-opacity 0.8s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+  animation: btn-opacity 0.8s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+}
+.placeholder {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #f8f6f4;
+  z-index: 9999;
+  text-align: center;
+  display: none;
+  font-size: 0;
+}
+.placeholder .plzrotate {
+  display: inline-block;
+  text-align: center;
+  text-transform: none;
+  vertical-align: middle;
+  font-size: 12px;
+  position: relative;
+}
+.placeholder .plzrotate .logo {
+  position: relative;
+  margin: 0 auto;
+}
+.placeholder .plzrotate .rotate {
+  position: relative;
+  top: 5px;
+  color: #7d7d7d;
+}
+.placeholder .plzrotate .spinner {
+  position: relative;
+  top: 15px;
+  width: 17px;
+  margin: 0 auto;
+  -webkit-animation: rotating 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  -moz-animation: rotating 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  -ms-animation: rotating 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  -o-animation: rotating 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  animation: rotating 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  -webkit-animation-direction: alternate;
+  -moz-animation-direction: alternate;
+  -ms-animation-direction: alternate;
+  animation-direction: alternate;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -ms-animation-delay: 1s;
+  animation-delay: 1s;
+}
+.placeholder:after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+@media screen and (max-height: 640px) and (orientation: landscape) {
+  .mobile .placeholder {
+    display: block;
+  }
+  body.closed .placeholder {
+    display: none;
+  }
+}
+@media screen and (orientation: landscape) {
+  .mobile.android .interactive {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 600px) and (orientation: landscape) {
+  .s3 .wrapper-1280 {
+    max-height: 360px;
+  }
+}
+@-webkit-keyframes rotating {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(90deg);
+  }
+}
+@-moz-keyframes rotating {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(90deg);
+  }
+}
+@-o-keyframes rotating {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(90deg);
+  }
+}
+@keyframes rotating {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+@-webkit-keyframes btn-rotating {
+  0% {
+    -webkit-transform: rotate(-45deg) translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: rotate(90deg) translate3d(0, 0, 0);
+  }
+}
+@-moz-keyframes btn-rotating {
+  0% {
+    -moz-transform: rotate(-45deg);
+  }
+  100% {
+    -moz-transform: rotate(90deg);
+  }
+}
+@-o-keyframes btn-rotating {
+  0% {
+    -o-transform: rotate(-45deg);
+  }
+  100% {
+    -o-transform: rotate(90deg);
+  }
+}
+@keyframes btn-rotating {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+@-webkit-keyframes btn-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes btn-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes btn-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes btn-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.utvp_player_frame,
+.utvp_video,
+.utvp_slate,
+.utvp_cover,
+.utvp_play_toggle_wrapper_insert {
+  background-color: rgba(0, 0, 0, 0.01) !important;
+}
+/* play button container */
+.utvp_player_frame,
+object {
+  width: 100% !important;
+  height: 100% !important;
+}
+.utvp_play_toggle {
+  opacity: 1 !important;
+}
+/*.utvp_play_toggle_wrapper{
+    display: block !important;
+}*/
+/* video height */
+.utvp_player_frame,
+.utvp_video {
+  height: auto!important;
+}
+video {
+  height: auto !important;
+}
+.video {
+  width: 100.2%!important;
+}
+/* time */
+.utvp_time_current,
+.utvp_time_duration {
+  display: none !important;
+}
+/* sound progress */
+.utvp_volume_slider {
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  -moz-transform: translate3d(0, 0, 0) !important;
+  -ms-transform: translate3d(0, 0, 0) !important;
+  -o-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+.utvp_controls.full .utvp_volume_bar {
+  height: 9px !important;
+  top: 11px !important;
+}
+/* global */
+.utvp_player_frame {
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+  height: 100% !important;
+}
+.utvp_controls,
+.picture-holder,
+.utvp_play_toggle,
+.utvp_buffer_wrapper,
+.utvp_slate,
+.utvp_player_frame {
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  -moz-transform: translate3d(0, 0, 0) !important;
+  -ms-transform: translate3d(0, 0, 0) !important;
+  -o-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+/* play button */
+.icon-play-toggle:before {
+  content: '' !important;
+  position: absolute !important;
+  background: url(video/skin/playBtn.png) center center no-repeat !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 94px !important;
+  height: 94px !important;
+  margin: -47px 0 0 -47px !important;
+  opacity: 1 !important;
+  background-size: 100% 100%!important;
+}
+.utvp_play_toggle_wrapper:hover .icon-play-toggle:before {
+  background-image: url(video/skin/playOver.png) !important;
+}
+.videoComplete .icon-play-toggle:before {
+  background-image: url(video/skin/replayBtn.png) !important;
+}
+.videoComplete .utvp_play_toggle_wrapper:hover .icon-play-toggle:before {
+  background-image: url(video/skin/replayOver.png) !important;
+}
+.mobile .utvp_controls.full .utvp_progress_bar {
+  width: 80% !important;
+}
+.tablet .utvp_controls.full .utvp_progress_bar {
+  width: 85% !important;
+}
+.iphone .utvp_controls {
+  display: none !important;
+}
+/* play button */
+.utvp_control_bar_buttons {
+  color: #5c5c5c!important;
+}
+.utvp_control_bar_buttons:hover {
+  color: #fff!important;
+}
+/* progress bar */
+.utvp_progress_down {
+  background-color: #5c5c5c!important;
+}
+.utvp_progress_current {
+  background-color: #fff !important;
+}
+.full.utvp_controls .utvp_progress_bar {
+  width: 76% !important;
+  height: 10px !important;
+}
+.minimal.utvp_controls .utvp_progress_bar {
+  display: none !important;
+}
+.iphone .utvp_controls {
+  display: none;
+}
+/* sound progress */
+.utvp_controls.full .utvp_volume_slider {
+  background-color: #ccc;
+}
+.utvp_controls.full .utvp_volume_bar {
+  background-color: #333;
+}
+@media only screen and (max-width: 600px) {
+  .full.utvp_controls .utvp_progress_bar {
+    width: 68% !important;
+    height: 10px !important;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .icon-play-toggle:before {
+    width: 50px !important;
+    height: 50px !important;
+    margin: -25px 0 0 -25px !important;
+    background-image: url(video/skin/mobilePlayBtn.png) !important;
+  }
+  .videoComplete .icon-play-toggle:before {
+    background-image: url(video/skin/mobileReplayBtn.png) !important;
+  }
+}
+.vhcenter {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.btn-container {
+  position: relative;
+}
+.btn-container .normal {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.btn-container .hover {
+  width: 100%;
+}
+/*============= Main CSS =============*/
+.preload img {
+  width: 100%;
+  height: auto;
+}
+.lt-ie9 .ie8_hidden {
+  visibility: hidden;
+}
+#ad_choices {
+  background-color: rgba(255, 255, 255, 0.99) !important;
+}
+.wrapper-container {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.wrapper-1280 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+body,
+.leavebehind,
+.interactive {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  overflow: hidden;
+  position: relative;
+}
+.leavebehind,
+.interactive {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.placeholder {
+  background-color: #B4B1B1;
+}
+.leavebehind {
+  height: 90px;
+  visibility: hidden;
+  background-color: #5c5c5c;
+}
+.leavebehind .icon {
+  background-color: red;
+  width: 100px;
+  height: 100%;
+  top: 0;
+  position: absolute;
+}
+.leavebehind .leavebehind-container {
+  height: 100%;
+  width: 100%;
+  background-color: #5c5c5c;
+}
+.leavebehind .leavebehind-container .fl {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  margin-left: 3%;
+}
+.leavebehind .leavebehind-container .one {
+  width: 21%;
+  max-width: 311px;
+}
+.leavebehind .leavebehind-container .oneMobile {
+  display: none;
+}
+.leavebehind .leavebehind-container .two {
+  width: 8%;
+  max-width: 139px;
+}
+.leavebehind .leavebehind-container .twoTablet {
+  display: none;
+}
+.leavebehind .leavebehind-container .three {
+  width: 22%;
+  max-width: 306px;
+}
+.leavebehind .leavebehind-container .threeTablet {
+  display: none;
+}
+.leavebehind .leavebehind-container .four {
+  width: 14%;
+  max-width: 176px;
+}
+.leavebehind .leavebehind-container .five {
+  margin-left: 3%;
+  width: 9%;
+  max-width: 106px;
+}
+.leavebehind .leavebehind-container .fiveMobile {
+  display: none;
+}
+.leavebehind .leavebehind-container:before {
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+.interactive {
+  height: 100%;
+  background-color: #5c5c5c;
+}
+.interactive .interactive-container {
+  height: 100%;
+}
+.interactive .interactive-container .mobile_part {
+  display: none;
+}
+.interactive .interactive-container .microLogoMobile {
+  display: none;
+}
+.interactive .interactive-container .mengban {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+}
+.interactive .interactive-container .bgFrame {
+  position: absolute;
+  z-index: 29;
+  left: 0;
+  width: 77%;
+  height: 100%;
+  max-width: 985px;
+  background-image: url(img/bgPlay.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.interactive .interactive-container .video-iphone {
+  display: none;
+}
+.interactive .interactive-container .playBtn {
+  position: absolute;
+  width: 10%;
+  max-width: 118px;
+  top: 39%;
+  left: 32%;
+  z-index: 400;
+}
+.interactive .interactive-container .bgFrameRight {
+  position: absolute;
+  width: 24%;
+  background-color: #5c5c5c;
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+.interactive .interactive-container .microLogo {
+  position: absolute;
+  width: 8.6%;
+  max-width: 110px;
+  z-index: 2;
+  top: 5%;
+  left: 79%;
+}
+.interactive .interactive-container .microLogoTablet {
+  display: none;
+}
+.interactive .interactive-container .text {
+  position: absolute;
+  width: 20%;
+  max-width: 250px;
+  z-index: 2;
+  top: 17%;
+  left: 79%;
+}
+.interactive .interactive-container .computerImg {
+  position: absolute;
+  z-index: 2;
+  top: 40%;
+  left: 80%;
+  width: 17%;
+  max-width: 214px;
+}
+.interactive .interactive-container .computerTabletImg {
+  display: none;
+}
+.interactive .interactive-container .cta {
+  width: 10%;
+  height: 40px;
+  position: relative;
+  z-index: 2;
+  top: 85%;
+  left: 80%;
+  background-color: #fff;
+  overflow: hidden;
+  text-align: center;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.interactive .interactive-container .cta .normal {
+  position: absolute;
+  top: 20px;
+  margin-top: -15px;
+}
+.interactive .icon {
+  background-color: red;
+  width: 100px;
+  height: 100%;
+  top: 0;
+  position: absolute;
+}
+.utvp_buffer_wrapper {
+  text-align: center !important;
+}
+.video-container {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  width: 60%;
+  z-index: 2000;
+  /*.utvp_buffer_wrapper{
+      margin-left: 1px !important;
+    }*/
+  /*video{
+        -webkit-transform:scale(1.00001);
+        -moz-transform:scale(1.00001);
+        -o-transform:scale(1.00001);
+        -ms-transform:scale(1.00001);
+      }*/
+}
+.video-container #vdo_close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 999999;
+  cursor: pointer;
+  width: 47px;
+  height: 47px;
+}
+.video-container #vdo_close img {
+  width: 100%;
+}
+.mobile .leavebehind {
+  height: 50px;
+}
+.mobile .leavebehind .leavebehind-container .fl {
+  margin-left: 3%;
+}
+.mobile .leavebehind .leavebehind-container .three {
+  display: none;
+}
+.mobile .leavebehind .leavebehind-container .threeTablet {
+  display: none;
+}
+.mobile .leavebehind .leavebehind-container .four {
+  display: none;
+}
+.mobile .leavebehind .leavebehind-container .one {
+  display: none;
+}
+.mobile .leavebehind .leavebehind-container .oneMobile {
+  display: inline-block;
+  width: 30%;
+  max-width: 258px;
+  vertical-align: middle;
+  margin-left: 5%;
+}
+.mobile .leavebehind .leavebehind-container .twoTablet {
+  width: 13%;
+  margin-left: 10%;
+}
+.mobile .leavebehind .leavebehind-container .five {
+  display: none;
+}
+.mobile .leavebehind .leavebehind-container .fiveMobile {
+  display: inline-block;
+  width: 20%;
+  max-width: 126px;
+  vertical-align: middle;
+  margin-left: 8%;
+}
+.mobile .interactive {
+  height: 100%;
+}
+.mobile .interactive .interactive-container .mobile_part {
+  display: block;
+  width: 100%;
+  background-color: #5c5c5c;
+  height: 13%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 29;
+}
+.mobile .interactive .interactive-container .microLogoMobile {
+  display: block;
+  position: absolute;
+  width: 30%;
+  max-width: 96px;
+  top: 5%;
+  left: 7%;
+  z-index: 30;
+}
+.mobile .interactive .interactive-container .bgFrame {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 13%;
+  background-image: url(img/bgFrameMobile.png);
+}
+.mobile .interactive .interactive-container .playBtn {
+  top: 31%;
+  width: 20%;
+  left: 39%;
+}
+.mobile .interactive .interactive-container .bgFrameRight {
+  width: 100%;
+  position: absolute;
+  top: 63%;
+  height: 37%;
+  background-color: #5c5c5c;
+  bottom: 0;
+}
+.mobile .interactive .interactive-container .microLogo {
+  display: none;
+}
+.mobile .interactive .interactive-container .microLogoTablet {
+  display: none;
+}
+.mobile .interactive .interactive-container .text {
+  width: 55%;
+  position: absolute;
+  top: 70%;
+  left: 4%;
+}
+.mobile .interactive .interactive-container .computerImg {
+  display: none;
+}
+.mobile .interactive .interactive-container .computerTabletImg {
+  display: block;
+  position: absolute;
+  left: 59%;
+  width: 35%;
+  max-width: 214px;
+  top: 68%;
+  z-index: 30;
+}
+.mobile .interactive .interactive-container .cta {
+  position: relative;
+  top: 86%;
+  left: 4%;
+  width: 25%;
+  height: 30px;
+}
+.mobile .interactive .interactive-container .cta .normal {
+  top: 15px;
+  margin-top: -15px;
+}
+.mobile .interactive .interactive-container .video-container {
+  width: 100%;
+}
+@media screen and (orientation: landscape) {
+  .mobile .interactive .interactive-container .video-container {
+    width: 616px !important;
+    height: 346px !important;
+  }
+  .mobile .interactive .interactive-container .video-container video {
+    height: 346px !important;
+    width: 616px !important;
+  }
+}
+@media screen and (orientation: landscape) {
+  .mobile .leavebehind .leavebehind-container .oneMobile {
+    width: 18%;
+    vertical-align: middle;
+    margin-left: 10%;
+  }
+  .mobile .leavebehind .leavebehind-container .twoTablet {
+    width: 10%;
+    vertical-align: middle;
+    margin-left: 10%;
+  }
+  .mobile .leavebehind .leavebehind-container .threeTablet {
+    display: inline-block;
+    width: 10%;
+    max-width: 116px;
+    vertical-align: middle;
+    margin-left: 5%;
+  }
+  .mobile .leavebehind .leavebehind-container .fiveMobile {
+    width: 10%;
+    max-width: 106px;
+    margin-left: 10%;
+    vertical-align: middle;
+  }
+}
+.s5 .leavebehind {
+  height: 100px;
+}
+@media screen and (min-width: 900px) {
+  .nexus7 .wrapper-1280 {
+    max-height: 441px;
+  }
+  .nexus7 .opened #ad_choices {
+    bottom: 0!important;
+    top: auto!important;
+  }
+}
+.iphone.ios8 {
+  /*.leavebehind{
+        height: 50px;
+        .leavebehind-container{
+              .twoTablet{
+                width: 15%;
+              }
+          }
+        }*/
+}
+.iphone.ios8 .interactive .interactive-container .playBtn {
+  top: 30%;
+  z-index: 400;
+}
+.iphone.ios8 .interactive .interactive-container .bgFrameRight {
+  top: 62%;
+  height: 55%;
+}
+.iphone.ios8 .interactive .interactive-container .computerImg {
+  top: 50%;
+}
+.iphone.ios8 .interactive .interactive-container .text {
+  top: 65%;
+}
+@media screen and (max-height: 550px) {
+  .iphone.ios8 body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+  }
+}
+.iphone.ios7 .interactive .interactive-container .playBtn {
+  top: 30%;
+  z-index: 400;
+}
+.iphone.ios7 .interactive .interactive-container .bgFrameRight {
+  top: 62%;
+  height: 55%;
+}
+.iphone.ios7 .interactive .interactive-container .computerImg {
+  top: 64%;
+}
+.iphone.ios7 .interactive .interactive-container .text {
+  top: 68%;
+}
+@media screen and (max-width: 1024px) {
+  .interactive .interactive-container .cta {
+    height: 35px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .interactive {
+    height: 100%;
+    background-color: #3498db;
+  }
+  .interactive .interactive-container {
+    height: 100%;
+  }
+  .interactive .interactive-container .bgFrame {
+    width: 100%;
+    height: 80%;
+  }
+  .interactive .interactive-container .bgFrameRight {
+    width: 100%;
+    top: 80%;
+    height: 20%;
+    z-index: 29;
+  }
+  .interactive .interactive-container .playBtn {
+    left: 45%;
+    top: 34%;
+  }
+  .interactive .interactive-container .microLogo {
+    display: none;
+  }
+  .interactive .interactive-container .microLogoTablet {
+    display: block;
+    width: 15%;
+    max-width: 105px;
+    position: absolute;
+    top: 87%;
+    left: 2%;
+    z-index: 30;
+  }
+  .interactive .interactive-container .text {
+    z-index: 30;
+    top: 85%;
+    left: 24%;
+    width: 27%;
+  }
+  .interactive .interactive-container .computerImg {
+    display: none;
+  }
+  .interactive .interactive-container .computerTabletImg {
+    display: block;
+    width: 11%;
+    max-width: 80px;
+    position: absolute;
+    top: 83%;
+    left: 58%;
+    z-index: 30;
+  }
+  .interactive .interactive-container .cta {
+    width: 17%;
+    z-index: 30;
+    top: 85%;
+    left: 77%;
+  }
+  .interactive .interactive-container .cta .normal {
+    margin-top: -17px;
+  }
+  .video-container {
+    width: 100%;
+  }
+  .leavebehind .leavebehind-container .fl {
+    margin-left: 3%;
+  }
+  .leavebehind .leavebehind-container .one {
+    width: 23%;
+  }
+  .leavebehind .leavebehind-container .two {
+    display: none;
+  }
+  .leavebehind .leavebehind-container .twoTablet {
+    display: inline-block;
+    width: 11%;
+    max-width: 126px;
+    margin-left: -2%;
+  }
+  .leavebehind .leavebehind-container .three {
+    display: none;
+  }
+  .leavebehind .leavebehind-container .threeTablet {
+    display: inline-block;
+    width: 16%;
+    max-width: 116px;
+    vertical-align: middle;
+    margin-left: 3%;
+  }
+  .leavebehind .leavebehind-container .four {
+    width: 17%;
+  }
+  .leavebehind .leavebehind-container .five {
+    width: 11%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .interactive .interactive-container .microLogoTablet {
+    left: 1%;
+    top: 88%;
+  }
+  .interactive .interactive-container .text {
+    left: 21%;
+    width: 28%;
+  }
+  .interactive .interactive-container .computerTabletImg {
+    left: 56%;
+    width: 13%;
+  }
+  .interactive .interactive-container .cta {
+    left: 76%;
+  }
+  .leavebehind .leavebehind-container .one h1 {
+    font-size: 14px;
+  }
+  .leavebehind .leavebehind-container .twoTablet {
+    width: 10%;
+  }
+  .leavebehind .leavebehind-container .three p {
+    font-size: 14px;
+  }
+  .leavebehind .leavebehind-container .four p {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .interactive .interactive-container .microLogoTablet {
+    left: 3%;
+  }
+  .interactive .interactive-container .text {
+    top: 87%;
+  }
+  .interactive .interactive-container .computerTabletImg {
+    top: 85%;
+    left: 54%;
+  }
+  .interactive .interactive-container .cta {
+    left: 71%;
+  }
+  .interactive .interactive-container .cta .normal {
+    margin-top: -15px;
+  }
+}

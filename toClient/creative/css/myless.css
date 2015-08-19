@@ -1,0 +1,20 @@
+.vhcenter {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.btn-container {
+  position: relative;
+}
+.btn-container .normal {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.btn-container .hover {
+  width: 100%;
+}

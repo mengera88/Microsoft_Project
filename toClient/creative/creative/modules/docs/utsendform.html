@@ -1,0 +1,413 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Pin This module demo</title>
+  <script id="ut_creativeLib">
+      // This detects whether the browser requires the Zepto or jQuery library
+      document.write('<script src=../../js/' +
+      ('__proto__' in {} ? 'zepto' : 'jquery') +
+      '.min.js><\/script>');
+  </script>
+
+  <script src="run_prettify.js"></script>
+  <script src="../js/ut.sendform.js"></script>
+  <style>
+    body {
+      font-size: 14px;
+      line-height: 22px;
+      background: #fff;
+      color: #000;
+      font-weight: 300;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    p {
+      margin: 20px 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      padding-top: 1.5em;
+      line-height: 1.1;
+      font-weight: 500;
+      clear: left;
+    }
+    h1:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      font-size: 2.2em;
+      font-weight: 200;
+    }
+    h2 {
+      font-size: 20px;
+      padding-bottom: .5em;
+    }
+    h4 { padding-top: .5em }
+    article { padding: 20px; }
+    pre {
+     white-space: pre-wrap;       /* css-3 */
+     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap;      /* Opera 4-6 */
+     white-space: -o-pre-wrap;    /* Opera 7 */
+     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    }
+    .pinIt, .pinIt-config {
+      float: left;
+      position:
+      relative;
+      width: 30%;
+      margin-right: 3%
+    }
+    .pinIt > img, .pinIt-config > img {
+      /*max-width: 30%;*/
+      max-width: 100%;
+    }
+    .ut-pin-this-button, .pinButton {
+      cursor: pointer;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+    }
+    .name { display: none; }
+  </style>
+
+  <!-- Form-styling -->
+  <style> 
+      .myFormArticle {
+        position: relative;
+        width: 300px;
+      }
+
+      form {
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .formRegion {
+        background-color: #eeeeee;
+        padding: 5px;
+        margin: 5px;
+      }
+
+      /* only the submit button is matched by this selector,
+          but to be sure you could use an id or class for that button */
+      input + input {
+          float: right;
+      }
+  </style>
+</head>
+<body>
+  <article>
+
+    <h1>ut.sendform</h1>
+
+    <h2>Module Overview</h2>
+
+    <p>This module lets you easily include a form on your page that integrates with the Impact Accellerator platform for tracking and redirect. Implementation is straightforward: you create your form as usual, then bind it to the module with a single line of Javascript. There are only a few requirements and configuraiton choices to know about. When the user submits your form, the browser is redirected to the associated landing page, with the user's data appended to the url as URL-encoded name-value pairs.</p>
+
+    <p>In most cases you should be able to implement a form simply by copy-pasting the HTML and Javascript from this sample, deleting what you don't need and supplying a few key properties.</p>
+
+    <p>The most common types of form input are supported:</p>
+
+    <ul>
+      <li>text</li>
+      <li>checkbox</li>
+      <li>radio button</li>
+      <li>textarea</li>
+      <li>select</li>
+    </ul>
+
+  <h2>Example </h2>
+
+  <p>Here is the form we will be using to demonstrate usage. It includes all the supported form inputs and illustrates the most common configuration choices. Understand that this form does not actually perform a redirect — that only takes place when the form exists on a page that is properly loaded within a ScreenShift context. 
+
+      <article class="myFormArticle">
+        <form id="myForm" 
+              action="" 
+              method="get" 
+              autocomplete="off" 
+              novalidate 
+              data-utClickId="1">
+
+          <div class="formRegion">
+            <div>
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" value="John Smith"/>
+            </div>
+
+            <div>
+              <label for="email">Email:</label>
+              <input type="text" id="email" name="email" value="john@smith.com"/>
+            </div>
+
+            <div>
+              <label for="url">URL:</label>
+              <input type="text" id="url" name="url" value="www.smith.com"/>
+            </div>
+          </div>
+
+          <div class="formRegion">
+            <div>
+              <label for="male">Male</label>
+              <input type="checkbox" id="male" name="male" value="male"checked >
+            </div>
+            <div>
+              <label for="female">Female</label>
+              <input type="checkbox" id="female" name="female" value="female">
+            </div>
+          </div>
+
+          <div class="formRegion">
+            <div>
+              <label for="radio1">Small</label>
+              <input type="radio" id="radio1" name="radioGroup" value="small" checked >
+            </div>
+            <div>
+              <label for="radio2">Medium</label>
+              <input type="radio" id="radio2" name="radioGroup" value="medium" >
+            </div>
+            <div>
+              <label for="radio3">Large</label>
+              <input type="radio" id="radio3" name="radioGroup" value="large">
+            </div>
+          </div>
+
+          <div class="formRegion">
+            <div>
+              <label for="comments">Comments:</label>
+              <textarea name="comments" id="comments" cols="30" rows="1">ABC</textarea>
+            </div>
+          </div>
+
+          <div class="formRegion">
+            <div>
+              <label for="location">City:</label>
+              <select id="location" name="location">
+                <option value="">Select location</option>
+                <option value="newyork" selected >New York</option>
+                <option value="vancouver">Vancouver</option>
+                <option value="boston">Boston</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="text-align:center">
+            <input type="submit" value="submit" />
+          </div>
+        </form>
+
+    </article>
+
+  <h2>Usage Overview</h2>
+
+    <p>The knowledge you need for implementing utsendform can be broken down into five areas: 
+
+    <ol>
+      <li>HTML: Defining your form </li>
+      <li>JS: Instantiating utsendform </li>
+      <li>Configuration</li>
+      <li>Imports</li>
+      <li>Special Cases</li>
+    </ol>
+
+  <h2>1. HTML: Defining your form </h2>
+
+    A typical use case may include only one or two text inputs, but for illustration purposes we are showing all supported form-input types. We have set default values on each input, but again, that is only for illustration purposes.
+
+    <pre><code class="prettyprint">
+      &lt;form id="myForm" action="" method="get" autocomplete="off" novalidate &gt;
+
+        &lt;!-- Three text inputs --&gt;
+        &lt;label for="name"&gt;Name:&lt;/label&gt;
+        &lt;input type="text" id="name" name="name"/&gt;
+        &lt;label for="email"&gt;Email:&lt;/label&gt;
+        &lt;input type="text" id="email" name="email"/&gt;
+        &lt;label for="url"&gt;URL:&lt;/label&gt;
+        &lt;input type="text" id="url" name="url"/&gt;
+
+        &lt;!-- Two checkboxes --&gt;
+        &lt;label for="male"&gt;Male&lt;/label&gt;
+        &lt;input type="checkbox" id="male" name="male" value="male"checked &gt;
+        &lt;label for="female"&gt;Female&lt;/label&gt;
+        &lt;input type="checkbox" id="female" name="female" value="female"&gt;
+
+        &lt;!-- Radio-button group --&gt;
+        &lt;label for="radio1"&gt;Small&lt;/label&gt;
+        &lt;input type="radio" id="radio1" name="radioGroup" value="small" checked &gt;
+        &lt;label for="radio2"&gt;Medium&lt;/label&gt;
+        &lt;input type="radio" id="radio2" name="radioGroup" value="medium" &gt;
+        &lt;label for="radio3"&gt;Large&lt;/label&gt;
+        &lt;input type="radio" id="radio3" name="radioGroup" value="large"&gt;
+
+        &lt;!-- Textarea --&gt;
+        &lt;label for="comments"&gt;Comments:&lt;/label&gt;
+        &lt;textarea name="comments" id="comments" cols="30" rows="1"&gt;&lt;/textarea&gt;
+
+        &lt;!-- Select --&gt;
+        &lt;label for="location"&gt;City:&lt;/label&gt;
+        &lt;select id="location" name="location"&gt;
+            &lt;option value=""&gt;Select location&lt;/option&gt;
+            &lt;option value="newyork" selected &gt;New York&lt;/option&gt;
+            &lt;option value="vancouver"&gt;Vancouver&lt;/option&gt;
+            &lt;option value="boston"&gt;Boston&lt;/option&gt;
+        &lt;/select&gt;
+
+        &lt;!-- Submit button --&gt;
+        &lt;input type="submit" value="submit" /&gt;
+
+    &lt;/form&gt;
+    </code></pre>
+
+      <h3>1.1. Key details:</h3>
+
+      The important things to notice about the above markup are:
+
+
+      <h4>1.1.1. Form tag attributes</h4>
+
+        <ul>
+        <li><p><strong><em>id</em> (Required)</strong> — This is the value that will be used to identify REDIRECT and CLICK trackers that are triggered when a user clicks the submit button. The id value you provide should be a short but informative string, using hypens rather than camel-case, and any spaces should be percent-encoded. Examples are:</p>
+
+            <ul>
+              <li><code>id=myForm</code></li>
+              <li><code>id=pepsi-taste-test-signup-form</code></li>
+              <li><code>id=acme-roadrunner%20decoy%20order%20form</code> button</li>
+            </ul>
+
+            <p>  In the REDIRECT and CLICK trackers that would get geneated for our example, the query string would include the key-value pair:</p>
+
+            <p>  <code>eid="myForm"</code></p></li>
+
+
+        <li><strong><em>method="get"</em> (Required)</strong> — The module only supports <em>get</em>, not <em>push</em></li>
+        <li><strong>autocomplete="off" (Optional)</strong> — If you implement validation, you might want to use this setting to keep the form from being repopulated from cached values after a validation failure</li>
+        <li><strong>novalidate (Optional)</strong> — Include this if you want to suppress browsers' default validation warnings </li>
+        </ul>
+
+      <h4>1.1.2. Input tag attributes</h4>
+
+        <ul>
+          <li><strong><em>id</em> attribute (Recommended)</strong> — Standard form rules apply: this attribute is not required by the module or IA platform, but is required for accessability</li>
+          <li><strong><em>name</em> attribute (Required)</strong> — Standard form rules apply: this attribute is used to form key-value pairs when submitting form data</li>
+          <li><strong><em>value</em> attribute (Optional/Required)</strong> — Standard form rules apply: this attribute is optional for "text" and "textarea" inputs, but for checkboxes, radio buttons and "option" tags within a "selected" input, it is necessary.</li>
+        </ul>
+
+    <h3>
+
+  <h2>2. Javascript: Instantiating utsendform</h2>
+
+    <p>For a typical use case, your entire form-related Javascript will look something like the following.</p>
+
+    <pre><code class="prettyprint">
+      &lt;script src="app.js"&gt;
+        $('#myForm').utsendform({utClickId: "1"});
+      &lt;/script&gt;
+    </code></pre>
+
+    <h3>2.1. Javascript Notes</h3>
+
+        <ul>
+          <li><strong><em>Syntax</em></strong> — The initialization command uses standard plugin jquery/zepto syntax for instantiating a plugin</li>
+          <li><strong><em>Form id</em> (Required)</strong> — Note that the module is instantiated with the id we assigned to our form element (<code>id="myForm"</code>). This is how the module knows to bind to the form.</li>
+          <li><strong><em><code>utClickId</code></em> (Required)</strong> — this is a number (1 or greater) that uniquely identifies any interaction that triggers a redirect. At runtime, this number corresponds to a redirect url in an array of urls. In this example, there is only way of triggering a redirect (submission of the form), so we use "1" for utClickId.</li>
+          <li><strong><em>Config object</em> (Required/Optional)</strong> — You can configure your form one of two ways: with a config object in the instantiation command (as shown here), or as a data attribute within the form tag. If we had chosen to configure the module with a data attribute, we would not have passed a config object in the instantiation call. For more on this, see the <i>Configuration</i> section, below.</li>
+          <li><strong><em><code>utWaitToSubmit</code></em> (Optional)</strong> — This optional config property is not used in the example, but is discussed below under <i>Special Cases</i></li>
+        </ul>
+
+  <h2>3. Configuration </h2>
+
+  <p>As mentioned above, you can configure your form with a configuration object (as shown in our example) or, alternatively, with a data attribute in the form element. In other words, we could have configured our form by including <code>data-utClickId="1"</code> in our form tag. Using that approach, our form tag and our Javascript instantiation would have been as follows:</p>
+
+  <h3>3.1. Form Tag</strong></em> (now includes <i>data-utClickId</i> attribute)</h3>
+
+  <pre><code class="prettyprint">&lt;form id="myForm" action="" method="get" autocomplete="off" novalidate &gt;</code></pre>
+
+  <h3>3.2. Javascript</strong></em> (now does <u>not</u> use config object to populate <i>utClickId</i></h3>
+
+      <pre><code class="prettyprint">
+      &lt;script src="app.js"&gt;
+        $('#myForm').utsendform();
+      &lt;/script&gt;
+    </code></pre>
+
+    There is no advantage of one configuration approach over the other: it is just a matter of preference.
+
+  <h2>4. Imports</h2>
+
+    <p>The only special Javascript import for utsendform is <i>ut.sendform.js</i>. </p>
+
+    <pre><code class="prettyprint">
+    &lt;script src="../js/ut.sendform.js"&gt;&lt;/script&gt;
+  </code></pre>
+
+  <h2>5. Special Cases</h2>
+
+    <p>Two features of utsendform you may wish to implement are: <strong><em>Delayed Submission</strong></em> and <strong><em>Module Events</strong></em></p>
+
+    <h3>5.1. Delayed Submission</h3>
+
+    <p>Normally, utsendform performs a submit action as soon as the user presses the form's submit button. If you wish, you can perform a small amount of logic before submission takes place. To do this, you configure the module to ignore the submit-button, and within that handler, you provide logic that calls the module's submitNow() method. The steps are as follows:</p>
+
+      <ul>
+        <li><strong><em>set <code>utWaitToSubmit=true</code></em></strong> — You can set this configuration property with a data-attribute in the form tag (<code>data-utWaitToSubmit="true"</code>) or with a property in the config object. The second approach is illustrated in <i>Delayed-Submit Example</i>, below.</li>
+        <li><strong><em>Define an onsubmit handler</em> (Required)</strong> — In the example below, we do this in the form tag</li>
+        <li><strong><em>Store the utsendform instance in a variable</em></strong> — See the Javascript, where we store the module instance in the var <i>utsf</i>. This is done so we can later call the module's public method <i>submitNow()</i>.</li>
+        <li><strong><em>Invoke submitNow()</em></strong> — The trick here is to avoid triggering popup blockers in the browsers. In a nutshell, the form's submit action will result in a redirect, and popup blockers will only honor a redirect if it is determined to come from a click action by the user. The rules for what constitutes a user-initiated redirect vary from browswer to browser and are not always clear. Key principles are:</li>
+        <ul>
+          <li><strong><em>Keep a straight execution path</em></strong> — In other words, no setTimeouts or other uses of a callback.</li>
+          <li><strong><em>Keep the logic brief</em></strong> — Keep your intervening logic brief. Sometimes a popup blockers seems to be triggered by a "long" delay between the user's click and the ultimate invocation of window.open()</li>
+          <li><strong><em>Test</em></strong> — Make sure your delayed-submission is working in all target environments</li>
+        </ul>
+      </ul>
+
+      <b>Delayed-Submit Example</b>
+
+      <pre><code class="prettyprint">
+      &lt;form id="myForm" action="" method="get" autocomplete="off" novalidate <b>onSubmit="doManualSubmit()</b>;" &gt;
+      </code></pre>
+
+      <pre><code class="prettyprint">
+      &lt;script&gt;
+        var $utsf = $('#myForm').utsendform();
+        function doManualSubmit(event) {
+          // Perform any pre-submit logic here, such as modifying user's input, then call submitNow()
+          // Keep it fast, and no callbacks!
+            $utsf.data('submitNow')();
+        }
+      &lt;/script&gt;
+      </code></pre>
+
+    <h3>5.2. Module Events</h3>
+
+      <p>The module dispatches the following events, which you can listen to or not, according to your needs. </p>
+
+        <ul>
+          <li><strong><em>utsendform_submitted</em></strong> — When the submit request is sent to server.</li>
+          <li><strong><em>utsendform_noRedirectUrl</em></strong> — You failed to provide an appropriate number (1 or greater) for utClickId, or Impact Accelerator was unable to match that number with a url</li>
+          <li><strong><em>utsendform_noInputData</em></strong> — No form data exists, either because there were no non-disabled inputs, or there were no inputs containing data</li>
+        </ul>
+
+      <p>To subscribe to module events, you first save the module instance into a variable, the define a handler, as shown here:</p>
+      <pre><code class="prettyprint">
+      &lt;script&gt;
+        var $utsf = $('#myForm').utsendform();
+        $utsf.on("utsendform_submitted", function() {
+            // Do stuff
+        });
+        $utsf.on("utsendform_noRedirectUrl", function() {
+            // Do stuff
+        });
+        $utsf.on("utsendform_noInputData", function() {
+            // Do stuff
+        });
+        // etc.
+      &lt;/script&gt;
+      </code></pre>
+
+
+    <script>
+            $utsf = $('#myForm').utsendform({utClickId: "1"});
+    </script>
+</article>
+</body>
+</html>
